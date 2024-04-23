@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Lista de Números</title>
+</head>
+<body>
+<h2>Calculadora de Lista de Números</h2>
+<p>Ingrese una lista de números separados por coma (por ejemplo: 1,2,3,4,5):</p>
+<input type="text" id="numberList">
+<button onclick="calculate()">Calcular</button>
+<div id="result"></div>
+
+<script>
+function calculate() {
+    var input = document.getElementById("numberList").value;
+    var numbers = input.split(",").map(Number);
+    var sum = 0;
+    var max = numbers[0];
+    var min = numbers[0];
+
+    for (var i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+        if (numbers[i] < min) {
+            min = numbers[i];
+        }
+    }
+
+    var average = sum / numbers.length;
+
+    var result = "Suma: " + sum + "<br>";
+    result += "Mayor: " + max + "<br>";
+    result += "Menor: " + min + "<br>";
+    result += "Media: " + average.toFixed(2);
+
+    document.getElementById("result").innerHTML = result;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manejo de Array</title>
+</head>
+<body>
+<h2>Manejo de Array</h2>
+<div>
+    <label for="element">Introduce un elemento:</label>
+    <input type="text" id="element">
+    <button onclick="addElement()">Agregar</button>
+</div>
+<div>
+    <button onclick="removeElement()">Eliminar Último Elemento</button>
+</div>
+<div id="arrayContent"></div>
+
+<script>
+
+var myArray = [];
+
+function addElement() {
+    var element = document.getElementById("element").value;
+    if (element.trim() === "") {
+        alert("Por favor, introduce un elemento válido.");
+        return;
+    }
+  
+    myArray.push(element);
+ 
+    showArrayContent();
+}
+
+function removeElement() {
+
+    if (myArray.length === 0) {
+        alert("El array está vacío.");
+        return;
+    }
+
+    myArray.pop();
+ 
+    showArrayContent();
+}
+
+function showArrayContent() {
+    var arrayContent = document.getElementById("arrayContent");
+
+    arrayContent.innerHTML = "";
+
+    arrayContent.innerHTML = "<p>Contenido del Array:</p><ul>";
+    for (var i = 0; i < myArray.length; i++) {
+        arrayContent.innerHTML += "<li>" + myArray[i] + "</li>";
+    }
+    arrayContent.innerHTML += "</ul>";
+}
+</script>
+</body>
+</html>

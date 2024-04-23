@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concatenador de Cadenas</title>
+</head>
+<body>
+<h2>Concatenador de Cadenas</h2>
+<p>Introduce dos cadenas con elementos separados por coma:</p>
+<input type="text" id="input1" placeholder="Cadena 1">
+<input type="text" id="input2" placeholder="Cadena 2">
+<button onclick="concatenate()">Concatenar</button>
+<div id="result"></div>
+
+<script>
+function concatenate() {
+    var string1 = document.getElementById("input1").value;
+    var string2 = document.getElementById("input2").value;
+
+    string1 = string1.trim();
+    string2 = string2.trim();
+
+    if (string1 === "" || string2 === "") {
+        alert("Por favor, introduce dos cadenas válidas.");
+        return;
+    }
+
+    var array1 = string1.split(",").filter(Boolean);
+    var array2 = string2.split(",").filter(Boolean);
+
+    var concatenatedString = array1.concat(array2).join(", ");
+
+    document.getElementById("result").innerHTML = "Cadenas Concatenadas: " + concatenatedString;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Números Pares</title>
+</head>
+<body>
+<h2>Números Pares</h2>
+<p>Introduce un conjunto de números separados por coma:</p>
+<input type="text" id="numberInput">
+<button onclick="showNumbers()">Mostrar Números</button>
+<button onclick="showEvenNumbers()">Mostrar Pares</button>
+<div id="tableContainer"></div>
+
+<script>
+function showNumbers() {
+    var numbers = document.getElementById("numberInput").value.split(",");
+    var table = "<table border='1'><tr><th>Números</th></tr>";
+    for (var i = 0; i < numbers.length; i++) {
+        table += "<tr><td>" + numbers[i] + "</td></tr>";
+    }
+    table += "</table>";
+    document.getElementById("tableContainer").innerHTML = table;
+}
+
+function showEvenNumbers() {
+    var numbers = document.getElementById("numberInput").value.split(",");
+    var evenNumbers = [];
+    for (var i = 0; i < numbers.length; i++) {
+        if (parseInt(numbers[i]) % 2 === 0) {
+            evenNumbers.push(numbers[i]);
+        }
+    }
+    var table = "<table border='1'><tr><th>Números Pares</th></tr>";
+    for (var j = 0; j < evenNumbers.length; j++) {
+        table += "<tr><td>" + evenNumbers[j] + "</td></tr>";
+    }
+    table += "</table>";
+    document.getElementById("tableContainer").innerHTML = table;
+}
+</script>
+</body>
+</html>
